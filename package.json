@@ -1,0 +1,36 @@
+{
+  "name": "testing-with-jest",
+  "packageManager": "yarn@3.2.1",
+  "version": "1.0.0",
+  "description": "Jest Unit Testing Examples",
+  "main": "dist/index.js",
+  "scripts": {
+    "cleanup": "npx rimraf dist/**/*.ts",
+    "compile": "tsc -p tsconfig.build.json",
+    "build": "yarn run cleanup && yarn run compile",
+    "build:dev": "tsc -w -p .",
+    "start": "yarn run build && node dist/index.js",
+    "start:dev": "yarn run build && node dist/index.js",
+    "start:debug": "node --inspect-brk=9090 dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only --no-notify -r tsconfig-paths/register ./src/index.ts",
+    "test": "jest --coverage --runInBand",
+    "test:dev": "jest --watch --coverage --runInBand"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/plugin-transform-runtime": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/jest": "^28.1.3",
+    "@types/node": "^18.0.0",
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "jest-pnp-resolver": "^1.2.2",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.7.4"
+  }
+}
